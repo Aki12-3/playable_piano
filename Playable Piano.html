@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Piano</title>
+	<link
+     rel="stylesheet" href="piano.css">
+	/>
+  </head>
+
+  <body>
+    <div id="loader-container">
+      <div class="loader"></div>
+    </div>
+	<div class="wrapper hide">
+	  <div class="piano-container"></div>
+	  <a href="https://www.youtube.com/channel/UCzYdlkhP0u7rRL3nkHxQ8xA" target="_blank"
+		>My Youtube Channel ....@ankitkryadav  (Subscribe Please)</a
+	  >
+	</div>
+	<script>
+	    const loaderContainer = document.getElementById('loader-container');
+      const wrapper = document.querySelector('.wrapper');
+      let pianoContainer = document.getElementsByClassName('piano-container');
+      const audioArr = [];
+      const base = 'https://ia800106.us.archive.org/13/items/24-piano-keys/';
+      document.onreadystatechange = async (e) => {
+        if (document.readyState === 'complete') {
+          //dom is ready, window.onload fires later
+
+          for (let index = 1; index <= 24; index++) {
+            const number = index <= 9 ? '0' + index : index;
+            const url = `${base}key${number}.mp3`;
+
+            // Fetch the audio using fetch API
+            const response = await fetch(url);
+
+            // Check if the request was successful
+            if (response.ok) {
+              const blob = await response.blob();
+              audioArr.push(new Audio(URL.createObjectURL(blob)));
+            }
+          }
+          if (audioArr.length) {
+            loaderContainer.classList.add('hide');
+            loaderContainer.firstElementChild.classList.add('hide');
+            wrapper.classList.remove('hide');
+          }
+        }
+      };
+      window.onload = () => {
+     
+        for (let index = 1; index <= 24; index++) {
+          let div = document.createElement('div');
+          div.classList.add('key', index <= 10 ? 'black-key' : 'white-key');
+          //for playing audio on click
+          const number = index <= 9 ? '0' + index : index;
+          div.addEventListener('click', () => audioArr[index - 1].play());
+          pianoContainer[0].appendChild(div);
+        }
+      };
+	</script>
+  </body>
+</html>

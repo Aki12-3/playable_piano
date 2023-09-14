@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #2887e3;
+  }
+  .wrapper {
+    position: absolute;
+    top: 2em;
+    
+  }
+  .piano-container {
+      position: relative;
+    display: flex;
+    padding: 4em 1em 1em 1em;
+    border-radius: 0.62em;
+    background-color: #24272e;
+    box-shadow: 0 2em 4em rgba(7, 0, 53, 0.25);
+  }
+  a {
+    font-size: 1.2em;
+    font-family: "Poppins", sans-serif;
+    display: block;
+    background-color: #fff;
+    text-align: center;
+    text-decoration: none;
+    padding: 1em 0;
+    border-radius: 0.5em;
+    box-shadow: 0 0.5em #dddddd;
+    margin-top: 2em;
+    color: #070a0f;
+  }
+  .white-key {
+    width: 4.37em;
+    height: 17.5em;
+    background-color: #fff;
+    border-radius: 0 0 0.3em 0.3em;
+    border: solid #24272e 2px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  .white-key:hover {
+    background-color: #ebebeb;
+  }
+  .black-key {
+    width: 2.5em;
+    height: 10em;
+    border-radius: 0 0 0.3em 0.3em;
+    box-sizing: border-box;
+    position: absolute;
+    background-color: #070a0f;
+    cursor: pointer;
+  }
+  .black-key:hover {
+    background-color: #24272e;
+  }
+  .black-key:nth-child(1) {
+    left: 4em;
+  }
+  .black-key:nth-child(2) {
+    left: 8.375em;
+  }
+  .black-key:nth-child(3) {
+    left: 17.125em;
+  }
+  .black-key:nth-child(4) {
+    left: 21.5em;
+  }
+  .black-key:nth-child(5) {
+    left: 25.87em;
+  }
+  .black-key:nth-child(6) {
+    left: 34.62em;
+  }
+  .black-key:nth-child(7) {
+    left: 39em;
+  }
+  .black-key:nth-child(8) {
+    left: 47.75em;
+  }
+  .black-key:nth-child(9) {
+    left: 52.125em;
+  }
+  .black-key:nth-child(10) {
+    left: 56.5em;
+  }
+ 
+  @media screen and (max-width: 700px) {
+    .piano-container {
+      font-size: 0.5em;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    .piano-container {
+      font-size: 0.3em;
+    }
+  }
+  #loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loader {
+    border: 4px solid #f3f3f3; /* Light gray border */
+    border-top: 4px solid #3498db; /* Blue top border */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .hide{
+      display: none;
+  }
